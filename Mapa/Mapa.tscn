@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Mapa/Mapa.gd" type="Script" id=1]
+[ext_resource path="res://FimJogo/Fim.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Players/PlayerA.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/TilesConta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ASSETS/bg_game.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/blue_template.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/AllTiles.tres" type="TileSet" id=7]
+[ext_resource path="res://Fonts/BarlowCondensed-SemiBold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Teclado/Teclado.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Dado/Dado.tscn" type="PackedScene" id=10]
+[ext_resource path="res://FimDeJogo/TelaFimdeJogo.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 8 )
+
+[node name="Mapa" type="Node2D"]
+script = ExtResource( 1 )
+fim = ExtResource( 2 )
+player = ExtResource( 3 )
+tile = ExtResource( 4 )
+tileConta = ExtResource( 4 )
+
+[node name="BackGround" type="Sprite" parent="."]
+position = Vector2( 961.834, 538.608 )
+texture = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 63, 64 )
+format = 1
+tile_data = PoolIntArray( 65548, 5, 0, 65549, 4, 0, 65550, 6, 0, 65555, 6, 0, 65556, 0, 0, 65557, 0, 0, 131084, 0, 0, 131086, 0, 0, 131091, 0, 0, 131093, 0, 0, 196620, 0, 0, 196622, 6, 0, 196627, 0, 0, 196629, 0, 0, 262156, 7, 0, 262158, 0, 0, 262159, 0, 0, 262160, 5, 0, 262163, 0, 0, 262165, 6, 0, 327696, 6, 0, 327699, 6, 0, 327701, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 6, 0, 393232, 0, 0, 393235, 0, 0, 393237, 0, 0, 393239, 0, 0, 393242, 0, 0, 458768, 6, 0, 458771, 0, 0, 458773, 0, 0, 458775, 0, 0, 458778, 0, 0, 524302, 0, 0, 524303, 6, 0, 524304, 0, 0, 524307, 6, 0, 524309, 0, 0, 524310, 6, 0, 524311, 0, 0, 524314, 0, 0, 589838, 0, 0, 589843, 0, 0, 589850, 6, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655379, 1, 0, 655386, 0, 0, 655389, 8, 0, 720912, 6, 0, 720915, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 4, 0, 720921, 6, 0, 720922, 0, 0, 720925, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786451, 0, 0, 786453, 0, 0, 786461, 6, 0, 851982, 0, 0, 851987, 1, 0, 851989, 0, 0, 851997, 0, 0, 917518, 0, 0, 917523, 0, 0, 917525, 6, 0, 917533, 6, 0, 983054, 5, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 4, 0, 983059, 5, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 6, 0, 983065, 4, 0, 983066, 6, 0, 983067, 0, 0, 983068, 0, 0, 983069, 6, 0 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Vez" type="Label" parent="."]
+margin_left = 22.5649
+margin_top = 72.591
+margin_right = 475.565
+margin_bottom = 168.591
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "VEZ"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dado" parent="." instance=ExtResource( 10 )]
+margin_left = 244.125
+margin_top = 294.852
+margin_right = 244.125
+margin_bottom = 294.852
+
+[node name="Caixa_Conta" type="Sprite" parent="."]
+position = Vector2( 309.957, 619.156 )
+texture = ExtResource( 6 )
+
+[node name="Teclado" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_left = 18.6972
+margin_top = -9.30798
+margin_right = 18.6973
+margin_bottom = -9.30798
+
+[node name="Fim" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="Bloquea" type="Label" parent="."]
+margin_left = 39.0
+margin_top = 824.0
+margin_right = 545.0
+margin_bottom = 1031.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="clear" from="." to="Teclado" method="_on_Mapa_clear"]
+[connection signal="fim" from="." to="Fim" method="_on_Mapa_fim"]
+[connection signal="number" from="Dado" to="." method="_on_Dado_number"]
+[connection signal="confirma" from="Teclado" to="." method="confirmar"]

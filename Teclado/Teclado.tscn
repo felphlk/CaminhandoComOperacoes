@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Teclado/Teclado.gd" type="Script" id=1]
+[ext_resource path="res://Teclado/Tecla.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Teclado/Clear.gd" type="Script" id=3]
+[ext_resource path="res://ASSETS/keyButton_overlayx.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/confirmButton_normal.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/confirmButton_overlay.png" type="Texture" id=6]
+[ext_resource path="res://Teclado/Confirmar.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Fonts/BarlowCondensed-SemiBold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://ASSETS/keyButton_x.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 9 )
+
+[node name="Teclado" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Tecla = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 90.0
+margin_top = 746.0
+margin_right = -1128.0
+margin_bottom = -143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clear" type="TextureButton" parent="."]
+margin_left = 89.705
+margin_top = 914.817
+margin_right = 156.705
+margin_bottom = 974.817
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirmar" type="TextureButton" parent="."]
+margin_left = 306.673
+margin_top = 914.817
+margin_right = 555.673
+margin_bottom = 1017.82
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Igual" type="Label" parent="."]
+margin_left = 382.499
+margin_top = 563.001
+margin_right = 420.499
+margin_bottom = 660.001
+custom_fonts/font = SubResource( 1 )
+text = "="
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="Label" parent="."]
+margin_left = 232.55
+margin_top = 571.4
+margin_right = 295.55
+margin_bottom = 668.4
+custom_fonts/font = SubResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Num1" type="Label" parent="."]
+margin_left = 110.9
+margin_top = 571.4
+margin_right = 209.9
+margin_bottom = 672.4
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num2" type="Label" parent="."]
+margin_left = 284.699
+margin_top = 571.4
+margin_right = 383.699
+margin_bottom = 672.4
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resposta" type="Label" parent="."]
+margin_left = 401.55
+margin_top = 571.4
+margin_right = 500.55
+margin_bottom = 672.4
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="tResposta" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]
+[connection signal="mouse_entered" from="Confirmar" to="Confirmar" method="_on_Confirmar_mouse_entered"]
+[connection signal="mouse_exited" from="Confirmar" to="Confirmar" method="_on_Confirmar_mouse_exited"]
+[connection signal="pressed" from="Confirmar" to="." method="_on_Confirmar_pressed"]

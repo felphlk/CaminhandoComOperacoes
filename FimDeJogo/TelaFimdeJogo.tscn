@@ -1,0 +1,138 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://FimDeJogo/TelaFimdeJogo.gd" type="Script" id=1]
+[ext_resource path="res://ASSETS/player_02.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/endGame_screen.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/player_04.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/player_03.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/sair_button.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/reiniciar_button.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/player_01.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/BarlowCondensed-SemiBold.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 150
+font_data = ExtResource( 9 )
+
+[node name="Fim" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 943.411, 543.256 )
+texture = ExtResource( 3 )
+
+[node name="player_01" type="Sprite" parent="."]
+position = Vector2( 455.408, 613.46 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="player_01"]
+margin_left = 46.0
+margin_top = -35.5
+margin_right = 89.0
+margin_bottom = 24.5
+custom_fonts/font = SubResource( 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_02" type="Sprite" parent="."]
+position = Vector2( 771.011, 613.46 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="player_02"]
+margin_left = 58.0
+margin_top = -35.5
+margin_right = 98.0
+margin_bottom = 24.5
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_03" type="Sprite" parent="."]
+position = Vector2( 1086.01, 613.46 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="player_03"]
+margin_left = 57.0
+margin_top = -35.5
+margin_right = 97.0
+margin_bottom = 24.5
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_04" type="Sprite" parent="."]
+position = Vector2( 1401.01, 613.46 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="player_04"]
+margin_left = 60.0
+margin_top = -35.5
+margin_right = 100.0
+margin_bottom = 24.5
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sair" type="TextureButton" parent="."]
+margin_left = 405.455
+margin_top = 718.159
+margin_right = 784.455
+margin_bottom = 901.159
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reiniciar" type="TextureButton" parent="."]
+margin_left = 1067.96
+margin_top = 712.858
+margin_right = 1446.96
+margin_bottom = 895.858
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextoFim" type="Label" parent="."]
+margin_left = 217.0
+margin_top = 127.0
+margin_right = 1656.0
+margin_bottom = 307.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Sair" to="." method="_on_Sair_pressed"]
+[connection signal="pressed" from="Reiniciar" to="." method="_on_Reiniciar_pressed"]
